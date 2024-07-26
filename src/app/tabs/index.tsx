@@ -1,9 +1,18 @@
 
-import {Text} from "react-native";
-import { Link } from "expo-router";
-export default function Home() {
+import { Text, View , Image,FlatList} from "react-native";
+import PostListItem from "~/src/components/PostListItem";
+import posts from "~/assets/data/posts.json";
+
+
+export default function FeedScreen() {
   return (
-    <Link href={"/about"}>Go to about</Link>
+    <FlatList
+        data={posts}
+        renderItem={({item})=><PostListItem post={item}/>}
+        contentContainerStyle={{gap:10}}
+        showsVerticalScrollIndicator={false}>
+        
+    </FlatList>
   );
 }
 
